@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Dashboard</h3>
+<div class="row g-3 mb-4">
+  <div class="col-md-4"><div class="card p-3"><h6>Presentes hoje</h6><div class="display-6">{{ presentes }}</div></div></div>
+  <div class="col-md-4"><div class="card p-3"><h6>Ausentes</h6><div class="display-6">{{ ausentes }}</div></div></div>
+  <div class="col-md-4"><div class="card p-3"><h6>Plantões do dia</h6><div class="display-6">{{ plantoes|length }}</div></div></div>
+</div>
+<div class="card p-3">
+  <h5>Plantões de Hoje</h5>
+  <table class="table table-sm">
+    <tr><th>Funcionário</th><th>Início</th><th>Fim</th></tr>
+    {% for p in plantoes %}<tr><td>{{ p.funcionario_nome }}</td><td>{{ p.hora_inicio }}</td><td>{{ p.hora_fim }}</td></tr>{% else %}<tr><td colspan="3">Sem plantões para hoje.</td></tr>{% endfor %}
+  </table>
+</div>
+{% endblock %}

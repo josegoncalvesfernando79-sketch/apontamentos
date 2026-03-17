@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Funcionários</h3>
+<form method="post" class="row g-2 mb-3">
+  <div class="col-md-3"><input name="nome" class="form-control" placeholder="Nome" required></div>
+  <div class="col-md-2"><input name="matricula" class="form-control" placeholder="Matrícula" required></div>
+  <div class="col-md-2"><input name="cargo" class="form-control" placeholder="Cargo"></div>
+  <div class="col-md-3"><select name="setor_id" class="form-select" required>{% for s in setores %}<option value="{{ s.id }}">{{ s.nome }}</option>{% endfor %}</select></div>
+  <div class="col-md-1 form-check mt-2"><input type="checkbox" class="form-check-input" name="ativo" checked><label class="form-check-label">Ativo</label></div>
+  <div class="col-md-1"><button class="btn btn-success w-100">Salvar</button></div>
+</form>
+<table class="table table-striped table-sm"><tr><th>Nome</th><th>Matrícula</th><th>Cargo</th><th>Setor</th><th>Status</th></tr>
+{% for f in funcionarios %}<tr><td>{{ f.nome }}</td><td>{{ f.matricula }}</td><td>{{ f.cargo }}</td><td>{{ f.setor_nome }}</td><td>{{ 'Ativo' if f.ativo else 'Inativo' }}</td></tr>{% endfor %}</table>
+{% endblock %}
