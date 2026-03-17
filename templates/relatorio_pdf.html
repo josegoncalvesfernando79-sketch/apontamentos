@@ -1,0 +1,8 @@
+<!doctype html><html><body>
+<h2>SIGEF - Relatório {{ tipo }} - {{ mes }}</h2>
+<table border="1" cellspacing="0" cellpadding="4">
+<tr>{% for h in headers %}<th>{{ h }}</th>{% endfor %}</tr>
+{% for row in rows %}<tr>{% for h in headers %}<td>{{ row[h] }}</td>{% endfor %}</tr>{% endfor %}
+</table>
+<p>Observação: em ambiente offline simples, o PDF é entregue como HTML imprimível.</p>
+</body></html>

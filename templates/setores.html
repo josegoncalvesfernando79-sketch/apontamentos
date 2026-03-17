@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Setores</h3>
+<form method="post" class="row g-2 mb-3">
+  <div class="col-md-4"><input name="nome" class="form-control" placeholder="Nome" required></div>
+  <div class="col-md-6"><input name="descricao" class="form-control" placeholder="Descrição"></div>
+  <div class="col-md-2"><button class="btn btn-success w-100">Salvar</button></div>
+</form>
+<table class="table table-striped"><tr><th>ID</th><th>Nome</th><th>Descrição</th></tr>
+{% for s in setores %}<tr><td>{{ s.id }}</td><td>{{ s.nome }}</td><td>{{ s.descricao }}</td></tr>{% endfor %}</table>
+{% endblock %}

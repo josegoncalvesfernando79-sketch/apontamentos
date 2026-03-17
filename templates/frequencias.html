@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Frequência</h3>
+<form method="post" class="row g-2 mb-4">
+  <div class="col-md-3"><select name="funcionario_id" class="form-select" required>{% for f in funcionarios %}<option value="{{ f.id }}">{{ f.nome }}</option>{% endfor %}</select></div>
+  <div class="col-md-2"><input type="date" name="data" class="form-control" required></div>
+  <div class="col-md-2"><input type="time" name="hora_entrada" class="form-control"></div>
+  <div class="col-md-2"><input type="time" name="hora_saida" class="form-control"></div>
+  <div class="col-md-3"><button class="btn btn-success">Registrar manualmente</button></div>
+</form>
+<table class="table table-sm table-striped"><tr><th>Data</th><th>Funcionário</th><th>Entrada</th><th>Saída</th></tr>
+{% for r in registros %}<tr><td>{{ r.data }}</td><td>{{ r.funcionario_nome }}</td><td>{{ r.hora_entrada or '-' }}</td><td>{{ r.hora_saida or '-' }}</td></tr>{% endfor %}</table>
+{% endblock %}

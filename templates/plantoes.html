@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Plantões</h3>
+<form method="post" class="row g-2 mb-3">
+  <div class="col-md-3"><select name="funcionario_id" class="form-select" required>{% for f in funcionarios %}<option value="{{ f.id }}">{{ f.nome }}</option>{% endfor %}</select></div>
+  <div class="col-md-2"><input type="date" name="data" class="form-control" required></div>
+  <div class="col-md-2"><input type="time" name="hora_inicio" class="form-control" required></div>
+  <div class="col-md-2"><input type="time" name="hora_fim" class="form-control" required></div>
+  <div class="col-md-2"><input name="observacoes" class="form-control" placeholder="Observações"></div>
+  <div class="col-md-1"><button class="btn btn-success w-100">Salvar</button></div>
+</form>
+<div class="card p-3">
+  <h5>Calendário simplificado</h5>
+  <table class="table table-sm table-striped"><tr><th>Data</th><th>Funcionário</th><th>Horário</th><th>Obs.</th></tr>
+  {% for p in plantoes %}<tr><td>{{ p.data }}</td><td>{{ p.funcionario_nome }}</td><td>{{ p.hora_inicio }} - {{ p.hora_fim }}</td><td>{{ p.observacoes }}</td></tr>{% endfor %}
+  </table>
+</div>
+{% endblock %}
