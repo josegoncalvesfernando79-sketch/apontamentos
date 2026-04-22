@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secretaria Municipal de Saúde de Barrinha</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="#" aria-label="Página inicial da Secretaria Municipal de Saúde de Barrinha">
+          <svg class="emblem" viewBox="0 0 80 80" role="img" aria-label="Brasão oficial do município (substituir pelo arquivo oficial)">
+            <defs>
+              <linearGradient id="shieldGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#295099" />
+                <stop offset="100%" stop-color="#1f3a73" />
+              </linearGradient>
+            </defs>
+            <path d="M40 5 L68 16 V36 C68 54 56 68 40 75 C24 68 12 54 12 36 V16 Z" fill="url(#shieldGradient)" />
+            <path d="M40 14 L60 22 V36 C60 49 52 60 40 66 C28 60 20 49 20 36 V22 Z" fill="#ffffff" opacity="0.95" />
+            <circle cx="40" cy="37" r="10" fill="#E36A1D" />
+            <rect x="37" y="30" width="6" height="14" rx="2" fill="#fff" />
+            <rect x="33" y="34" width="14" height="6" rx="2" fill="#fff" />
+          </svg>
+          <div>
+            <p class="brand-title">Secretaria Municipal de Saúde de Barrinha</p>
+            <p class="brand-subtitle">Sistema Público Digital</p>
+          </div>
+        </a>
+
+        <nav aria-label="Navegação principal">
+          <ul class="menu">
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#painel">Painel</a></li>
+            <li><a href="#indicadores">Indicadores</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-content">
+          <div>
+            <p class="eyebrow">Gestão em Saúde Pública • Município de Barrinha (SP)</p>
+            <h1>Informação clara para o cidadão e eficiência para o servidor.</h1>
+            <p>
+              Acompanhe atendimentos, produção das unidades, encaminhamentos e indicadores em
+              uma plataforma moderna, acessível e integrada à rotina da rede municipal de saúde.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#painel">Acessar Dashboard</a>
+              <a class="btn btn-secondary" href="#servicos">Consultar Serviços</a>
+            </div>
+          </div>
+          <aside class="hero-card" aria-label="Resumo de desempenho da saúde municipal">
+            <h2>Resumo do Mês</h2>
+            <ul>
+              <li><span>Atendimentos realizados</span> <strong>12.480</strong></li>
+              <li><span>Encaminhamentos concluídos</span> <strong>2.130</strong></li>
+              <li><span>Tempo médio de espera</span> <strong>18 min</strong></li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="painel" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Dashboard Operacional</h2>
+            <p>Monitoramento por período e unidade com foco em decisões rápidas.</p>
+          </div>
+
+          <div class="filters" role="group" aria-label="Filtros de período e unidade">
+            <label>
+              Período
+              <select>
+                <option>Últimos 30 dias</option>
+                <option>Últimos 90 dias</option>
+                <option>Ano atual</option>
+              </select>
+            </label>
+            <label>
+              Unidade
+              <select>
+                <option>Todas as unidades</option>
+                <option>UBS Central</option>
+                <option>UBS Jardim Paulista</option>
+              </select>
+            </label>
+            <button class="btn btn-primary">Aplicar filtros</button>
+          </div>
+
+          <div class="kpi-grid" id="indicadores">
+            <article class="card kpi">
+              <p>Produção Total</p>
+              <h3>24.391</h3>
+              <span class="status positive">+8,4% no período</span>
+            </article>
+            <article class="card kpi highlight">
+              <p>Atendimentos</p>
+              <h3>12.480</h3>
+              <span class="status neutral">Destaque mensal</span>
+            </article>
+            <article class="card kpi">
+              <p>Encaminhamentos</p>
+              <h3>2.130</h3>
+              <span class="status positive">Taxa de conclusão 92%</span>
+            </article>
+            <article class="card kpi">
+              <p>Absenteísmo</p>
+              <h3>4,3%</h3>
+              <span class="status neutral">Meta: abaixo de 5%</span>
+            </article>
+          </div>
+
+          <div class="chart-grid">
+            <article class="card chart-card">
+              <h3>Evolução de Atendimentos</h3>
+              <div class="bars" aria-hidden="true">
+                <span style="--size: 62%"></span>
+                <span style="--size: 78%"></span>
+                <span style="--size: 70%"></span>
+                <span style="--size: 89%"></span>
+                <span style="--size: 82%"></span>
+                <span style="--size: 95%"></span>
+              </div>
+            </article>
+            <article class="card chart-card">
+              <h3>Distribuição por Unidade</h3>
+              <ul class="unit-list">
+                <li><span>UBS Central</span><strong>38%</strong></li>
+                <li><span>UBS Jardim Paulista</span><strong>27%</strong></li>
+                <li><span>UBS Bela Vista</span><strong>22%</strong></li>
+                <li><span>Outras</span><strong>13%</strong></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="servicos" class="section section-soft">
+        <div class="container service-grid">
+          <article class="card service-card">
+            <h3>Agendamento Digital</h3>
+            <p>Solicite consultas e acompanhe horários de forma simplificada.</p>
+          </article>
+          <article class="card service-card">
+            <h3>Fila de Especialidades</h3>
+            <p>Consulte posição na fila e receba orientações para próximos passos.</p>
+          </article>
+          <article class="card service-card">
+            <h3>Ouvidoria da Saúde</h3>
+            <p>Canal oficial para manifestações, sugestões e acompanhamento.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contato" class="site-footer">
+      <div class="container footer-content">
+        <div class="footer-logo" aria-hidden="true">Prefeitura de Barrinha</div>
+        <p class="footer-quote">Barrinha é cada um de nós, vamos em frente!</p>
+        <ul class="footer-links">
+          <li><a href="#">Portal da Transparência</a></li>
+          <li><a href="#">Fale Conosco</a></li>
+          <li><a href="#">Telefone: (16) 9999-9999</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
