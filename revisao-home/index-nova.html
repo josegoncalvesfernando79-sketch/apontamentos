@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prévia | Nova Home Saúde Municipal de Barrinha/SP</title>
+  <meta name="description" content="Prévia da nova homepage futurista da Saúde Municipal de Barrinha/SP para revisão interna." />
+  <link rel="stylesheet" href="nova-home.css" />
+</head>
+<body>
+  <header class="header" aria-label="Cabeçalho institucional">
+    <div class="header-inner">
+      <div class="logo-slot">BRASÃO DO MUNICÍPIO<br>(placeholder)</div>
+      <nav class="menu" aria-label="Menu principal">
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#regulacao">Regulação</a>
+        <a href="#transporte">Transporte</a>
+        <a href="#farmacia">Farmácia</a>
+        <a href="#educacao">Educação em Saúde</a>
+        <a href="../portal-atual.html">Portal Atual</a>
+      </nav>
+      <div class="logo-slot">LOGO ADMINISTRAÇÃO 2025/2028<br>(placeholder)</div>
+    </div>
+  </header>
+
+  <main class="hero" id="inicio">
+    <section class="hero-inner">
+      <h1>A Saúde de Barrinha está entrando em uma nova era.</h1>
+      <p class="lead">Tecnologia, informação e cuidado conectando pessoas, serviços e territórios.</p>
+
+      <div class="map-stage" role="img" aria-label="Mapa futurista territorial de Barrinha">
+        <div class="map-core">
+          <!-- TODO: substituir por SVG oficial do território de Barrinha/SP -->
+          <svg class="map-svg" viewBox="0 0 500 350" aria-hidden="true">
+            <path class="map-outline" d="M65,120 L130,62 L220,44 L315,70 L400,132 L440,214 L386,286 L282,318 L176,295 L100,242 L70,182 Z" />
+            <circle class="pulse" cx="170" cy="132" r="5" />
+            <circle class="pulse" cx="265" cy="102" r="6" style="animation-delay:.4s" />
+            <circle class="pulse" cx="328" cy="198" r="5" style="animation-delay:.7s" />
+            <circle class="pulse" cx="222" cy="242" r="6" style="animation-delay:1s" />
+          </svg>
+        </div>
+
+        <div class="cards-grid" id="servicos">
+          <article class="floating-card" id="transporte"><h3>Transporte Inteligente</h3><p>Solicitação digital de transporte, organização de rotas e acompanhamento operacional.</p></article>
+          <article class="floating-card" id="regulacao"><h3>Regulação Transparente</h3><p>Entenda o caminho do encaminhamento: solicitação médica, regulação municipal, CROSS-SP e retorno ao cidadão.</p></article>
+          <article class="floating-card"><h3>Saúde Conectada</h3><p>Informações, orientações e confirmações digitais aproximando a Secretaria do munícipe.</p></article>
+          <article class="floating-card"><h3>Inteligência Territorial</h3><p>Dados por território, área, microárea e equipe para apoiar decisões em saúde.</p></article>
+          <article class="floating-card" id="farmacia"><h3>Farmácia Inteligente</h3><p>Controle moderno de medicamentos, distribuição e segurança no abastecimento.</p></article>
+          <article class="floating-card" id="educacao"><h3>Produção e Indicadores</h3><p>Leitura estratégica da produção, equipes, unidades e riscos de perda de recursos.</p></article>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#servicos">Conheça os Serviços</a>
+        <a class="btn btn-secondary" href="../portal-atual.html">Acompanhe as Novidades</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="nova-home.js"></script>
+</body>
+</html>
