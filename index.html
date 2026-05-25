@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TFD Municipal de Barrinha</title>
+  <style>
+    :root {
+      --azul: #1F3A5F;
+      --laranja: #F05A28;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #1d2b3a;
+      --muted: #6b7c93;
+      --border: #dfe6ef;
+      --ok: #2e7d32;
+      --warn: #ef6c00;
+      --pending: #1565c0;
+      --danger: #c62828;
+      --shadow: 0 6px 24px rgba(31, 58, 95, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--azul), #2c4f7f);
+      color: #fff;
+      padding: 20px clamp(16px, 4vw, 40px);
+      box-shadow: var(--shadow);
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: clamp(1.2rem, 2.3vw, 1.8rem);
+      font-weight: 700;
+    }
+
+    .brand p {
+      margin: 4px 0 0;
+      color: rgba(255,255,255,0.88);
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      border: none;
+      background: var(--laranja);
+      color: #fff;
+      font-weight: 600;
+      padding: 12px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform .15s ease, filter .2s ease;
+      box-shadow: 0 6px 16px rgba(240,90,40,.35);
+    }
+
+    .btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(0); }
+
+    main {
+      padding: 20px clamp(16px, 4vw, 40px) 32px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 2px 10px rgba(31,58,95,.07);
+    }
+
+    .card .label {
+      font-size: .86rem;
+      color: var(--muted);
+      margin: 0 0 6px;
+      font-weight: 600;
+    }
+
+    .card .value {
+      margin: 0;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--azul);
+    }
+
+    .card .trend {
+      margin-top: 6px;
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    .table-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(31,58,95,.07);
+    }
+
+    .table-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      background: #fbfdff;
+    }
+
+    .table-header h2 {
+      margin: 0;
+      font-size: 1.05rem;
+      color: var(--azul);
+    }
+
+    .chip {
+      font-size: .78rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(31,58,95,.1);
+      color: var(--azul);
+      font-weight: 600;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: .92rem;
+    }
+
+    th {
+      background: #f9fbfe;
+      color: var(--azul);
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+    }
+
+    tr:hover td { background: #fcfeff; }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .78rem;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 5px 10px;
+      color: #fff;
+    }
+
+    .status.ok { background: var(--ok); }
+    .status.warn { background: var(--warn); }
+    .status.pending { background: var(--pending); }
+    .status.danger { background: var(--danger); }
+
+    footer {
+      text-align: center;
+      padding: 14px;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    @media (max-width: 980px) {
+      .cards { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+
+    @media (max-width: 680px) {
+      header { padding-bottom: 18px; }
+      .header-top { align-items: flex-start; }
+      .btn-primary { width: 100%; }
+      .cards { grid-template-columns: 1fr; }
+      .table-wrap { overflow-x: auto; }
+      table { min-width: 680px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="header-top">
+        <div class="brand">
+          <h1>TFD Municipal de Barrinha</h1>
+          <p>Painel de acompanhamento de Tratamento Fora do Domicílio</p>
+        </div>
+        <button class="btn-primary" type="button">+ Nova Solicitação</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="cards" aria-label="Resumo de indicadores">
+        <article class="card">
+          <p class="label">Solicitações no mês</p>
+          <p class="value">148</p>
+          <div class="trend">+12% em relação ao mês anterior</div>
+        </article>
+        <article class="card">
+          <p class="label">Aprovadas</p>
+          <p class="value">112</p>
+          <div class="trend">Taxa de aprovação: 75,7%</div>
+        </article>
+        <article class="card">
+          <p class="label">Em análise</p>
+          <p class="value">21</p>
+          <div class="trend">Prazo médio: 2,3 dias</div>
+        </article>
+        <article class="card">
+          <p class="label">Pendentes de documento</p>
+          <p class="value">15</p>
+          <div class="trend">Aguardando retorno do paciente</div>
+        </article>
+      </section>
+
+      <section class="table-wrap" aria-label="Tabela de solicitações">
+        <div class="table-header">
+          <h2>Solicitações recentes</h2>
+          <span class="chip">Atualizado hoje • 08:30</span>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Paciente</th>
+              <th>Destino</th>
+              <th>Especialidade</th>
+              <th>Data da viagem</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#TFD-2401</td>
+              <td>Maria S. Andrade</td>
+              <td>Ribeirão Preto</td>
+              <td>Oncologia</td>
+              <td>27/05/2026</td>
+              <td><span class="status ok">Aprovada</span></td>
+            </tr>
+            <tr>
+              <td>#TFD-2398</td>
+              <td>José C. Lima</td>
+              <td>Campinas</td>
+              <td>Cardiologia</td>
+              <td>28/05/2026</td>
+              <td><span class="status pending">Em análise</span></td>
+            </tr>
+            <tr>
+              <td>#TFD-2392</td>
+              <td>Ana P. Freitas</td>
+              <td>São Paulo</td>
+              <td>Neurologia</td>
+              <td>30/05/2026</td>
+              <td><span class="status warn">Doc. pendente</span></td>
+            </tr>
+            <tr>
+              <td>#TFD-2386</td>
+              <td>Carlos R. Prado</td>
+              <td>Araraquara</td>
+              <td>Ortopedia</td>
+              <td>26/05/2026</td>
+              <td><span class="status danger">Reprovada</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      Prefeitura Municipal de Barrinha • Sistema TFD • Versão 1.0
+    </footer>
+  </div>
+</body>
+</html>
